@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://cdn.pixabay.com/photo/2016/11/21/12/39/stars-1845140_1280.jpg'); /* Imagen del espacio en alta resolución */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    background-color: black;
+    color: white;
+    
+}
+
+
