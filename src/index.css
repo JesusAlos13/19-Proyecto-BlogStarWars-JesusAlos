@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url('https://cdn.pixabay.com/photo/2016/11/21/12/39/stars-1845140_1280.jpg'); /* Imagen del espacio en alta resolución */
+    background-image: url('https://cdn.pixabay.com/photo/2016/11/21/12/39/stars-1845140_1280.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

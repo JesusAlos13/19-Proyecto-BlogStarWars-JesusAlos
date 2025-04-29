@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 export const Planet = () => {
-    const [planet, setPlanet] = useState({});
+    const [planetData, setPlanetData] = useState({});
     const [loading, setLoading] = useState(true);
     const { id } = useParams();
 
     useEffect(() => {
         fetchPlanet();
-    }, []);
+    }, [id]); 
 
     const fetchPlanet = async () => {
         try {
             const response = await fetch(`https://swapi.tech/api/planets/${id}`);
             const data = await response.json();
-            setPlanet(data.result.properties);
+            setPlanetData(data.result.properties);
         } catch (error) {
             console.error("Error fetching planet:", error);
         } finally {
@@ -30,17 +29,21 @@ export const Planet = () => {
             ) : (
                 <div className="d-flex justify-content-center align-items-center min-vh-100 flex-column">
                     <div className="text-center">
-                        <h1>{planet.name}</h1>
-                        <p>Climate : {planet.climate}</p>
-                        <p>Diameter : {planet.diameter}</p>
-                        <p>Gravity : {planet.gravity}</p>
-                        <p>Orbital Period : {planet.orbital_period}</p>
-                        <p>Population : {planet.population}</p>
-                        <p>Terrain : {planet.terrain}</p>
+                        <h1>{planetData.name}</h1>
+                        <p>Climate: {planetData.climate}</p>
+                        <p>Diameter: {planetData.diameter}</p>
+                        <p>Gravity: {planetData.gravity}</p>
+                        <p>Orbital Period: {planetData.orbital_period}</p>
+                        <p>Population: {planetData.population}</p>
+                        <p>Terrain: {planetData.terrain}</p>
                     </div>
 
                     <div className="mx-5">
-                        <img className="rounded" style={{ width: "30rem" }} src="https://static1.srcdn.com/wordpress/wp-content/uploads/2023/10/major-star-wars-planets-future-image.jpg" alt="Planet" />
+                        <img
+                            className="rounded img-fluid"
+                            src="https://external-preview.redd.it/8t2Ke2zdrHx669tFR1UzcOvELcpRPMUsPUyMLVB0EN0.jpg?width=640&crop=smart&auto=webp&s=7634d7e18c7152e569626f4c59b44249b2466f7b"
+                            alt="Planet"
+                        />
                     </div>
 
                     <div className="text-center mt-3">
@@ -53,3 +56,4 @@ export const Planet = () => {
         </div>
     );
 };
+

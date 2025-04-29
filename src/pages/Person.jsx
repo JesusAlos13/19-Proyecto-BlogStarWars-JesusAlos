@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 export const Person = () => {
-    const [person, setPerson] = useState({});
+    const [personData, setPersonData] = useState({});
     const [loading, setLoading] = useState(true);
     const { id } = useParams();
 
     useEffect(() => {
         fetchPerson();
-    }, []);
+    }, [id]); 
 
     const fetchPerson = async () => {
         try {
             const response = await fetch(`https://swapi.tech/api/people/${id}`);
             const data = await response.json();
-            setPerson(data.result.properties);
+            setPersonData(data.result.properties);
         } catch (error) {
             console.error("Error fetching people:", error);
         } finally {
@@ -30,15 +29,19 @@ export const Person = () => {
             ) : (
                 <div className="d-flex justify-content-center align-items-center min-vh-100 flex-column">
                     <div className="text-center">
-                        <h1>{person.name}</h1>
-                        <p>Height : {person.height}</p>
-                        <p>Mass : {person.mass}</p>
-                        <p>Birth Year : {person.birth_year}</p>
-                        <p>Gender : {person.gender}</p>
+                        <h1>{personData.name}</h1>
+                        <p>Height: {personData.height}</p>
+                        <p>Mass: {personData.mass}</p>
+                        <p>Birth Year: {personData.birth_year}</p>
+                        <p>Gender: {personData.gender}</p>
                     </div>
 
                     <div className="mx-5">
-                        <img className="rounded" style={{ width: "30rem" }} src="https://wallpapers.com/images/featured/fondos-de-star-wars-vdgqv4b95q9ur6ak.jpg" alt="Character" />
+                        <img
+                            className="rounded img-fluid"
+                            src="https://external-preview.redd.it/8t2Ke2zdrHx669tFR1UzcOvELcpRPMUsPUyMLVB0EN0.jpg?width=640&crop=smart&auto=webp&s=7634d7e18c7152e569626f4c59b44249b2466f7b"
+                            alt="Character"
+                        />
                     </div>
 
                     <div className="text-center mt-3">
@@ -51,4 +54,4 @@ export const Person = () => {
         </div>
     );
 };
-``
+

@@ -4,7 +4,7 @@ export const Home = () => {
   return (
     <div className="container py-5 min-vh-100 d-flex justify-content-center align-items-center">
       <div className="row justify-content-center g-4">
-        {/* Card for Characters */}
+       
         <Link className="col-md-8 col-lg-6 text-decoration-none" to="/people">
           <div className="card shadow-lg border-0 h-100 rounded-4 overflow-hidden position-relative">
             <div className="card-text position-absolute top-0 start-0 end-0 p-3 bg-white d-flex justify-content-center align-items-center">
@@ -18,7 +18,7 @@ export const Home = () => {
           </div>
         </Link>
 
-        {/* Card for Planets */}
+        
         <Link className="col-md-8 col-lg-6 text-decoration-none" to="/planets">
           <div className="card shadow-lg border-0 h-100 rounded-4 overflow-hidden position-relative">
             <div className="card-text position-absolute top-0 start-0 end-0 p-3 bg-white d-flex justify-content-center align-items-center">
@@ -32,7 +32,7 @@ export const Home = () => {
           </div>
         </Link>
 
-        {/* Card for Vehicles */}
+        
         <Link className="col-md-8 col-lg-6 text-decoration-none" to="/vehicles">
           <div className="card shadow-lg border-0 h-100 rounded-4 overflow-hidden position-relative">
             <div className="card-text position-absolute top-0 start-0 end-0 p-3 bg-white d-flex justify-content-center align-items-center">

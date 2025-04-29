@@ -1,5 +1,3 @@
-// store.js
-
 export const initialStore = () => ({
   favorites: []
 });
@@ -18,6 +16,12 @@ export default function storeReducer(store, action = {}) {
         favorites: store.favorites.filter(
           fav => fav.name !== action.payload.name
         )
+      };
+
+    case "CLEAR_FAVORITES":
+      return {
+        ...store,
+        favorites: []
       };
 
     default:

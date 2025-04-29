@@ -4,7 +4,6 @@ import useGlobalReducer from "../hooks/useGlobalReducer";
 
 export const Card = ({ name, link }) => {
     const { store, dispatch } = useGlobalReducer();
-
     const isFavorite = store.favorites.some(item => item.name === name);
 
     const toggleFavorite = () => {
@@ -16,19 +15,19 @@ export const Card = ({ name, link }) => {
     };
 
     return (
-        <div className="card m-1" style={{ width: "18rem" }}>
+        <div className="card shadow-sm rounded-4 border-0 m-2" style={{ width: "18rem", transition: "transform 0.2s" }}>
             <img
-                src="https://i.blogs.es/de17ae/star-wars-outlaws-playstation-xbox-pc/1366_2000.jpeg"
-                className="card-img-top"
+                src="https://external-preview.redd.it/8t2Ke2zdrHx669tFR1UzcOvELcpRPMUsPUyMLVB0EN0.jpg?width=640&crop=smart&auto=webp&s=7634d7e18c7152e569626f4c59b44249b2466f7b"
+                className="card-img-top rounded-top-4"
                 alt="Foto"
             />
             <div className="card-body">
-                <h5 className="card-title">{name}</h5>
-                <div className="d-flex justify-content-between">
-                    <Link to={link} className="btn btn-light">
+                <h5 className="card-title text-center fw-semibold">{name}</h5>
+                <div className="d-flex justify-content-between align-items-center mt-3">
+                    <Link to={link} className="btn btn-outline-primary btn-sm">
                         More info
                     </Link>
-                    <button className="btn btn-dark" onClick={toggleFavorite}>
+                    <button className={`btn btn-sm ${isFavorite ? "btn-danger" : "btn-outline-danger"}`} onClick={toggleFavorite}>
                         {isFavorite ? "❤️" : "🤍"}
                     </button>
                 </div>

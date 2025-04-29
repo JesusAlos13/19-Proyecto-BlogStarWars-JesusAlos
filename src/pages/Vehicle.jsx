@@ -40,7 +40,7 @@ export const Vehicle = () => {
                     </div>
 
                     <div className="mx-5">
-                        <img className="rounded" style={{ width: "30rem" }} src="https://wallpapers.com/images/hd/x-wing-fighter-2200-x-1079-wallpaper-ci4a66boayatnku4.jpg" alt="Vehicles" />
+                        <img className="rounded" style={{ width: "30rem" }} src="https://external-preview.redd.it/8t2Ke2zdrHx669tFR1UzcOvELcpRPMUsPUyMLVB0EN0.jpg?width=640&crop=smart&auto=webp&s=7634d7e18c7152e569626f4c59b44249b2466f7b" alt="Vehicles" />
                     </div>
 
                     <div className="text-center mt-3">
