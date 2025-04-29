@@ -45,7 +45,7 @@ export const Vehicle = () => {
 
                     <div className="text-center mt-3">
                         <Link to="/vehicles">
-                            <button className="btn btn-light my-1">Back</button>
+                            <button className="btn btn-light my-1">Volver a vehículos</button>
                         </Link>
                     </div>
                 </div>

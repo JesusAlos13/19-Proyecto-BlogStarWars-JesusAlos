@@ -8,7 +8,7 @@ export const Planet = () => {
 
     useEffect(() => {
         fetchPlanet();
-    }, [id]); 
+    }, [id]);
 
     const fetchPlanet = async () => {
         try {
@@ -48,7 +48,7 @@ export const Planet = () => {
 
                     <div className="text-center mt-3">
                         <Link to="/planets">
-                            <button className="btn btn-light my-1">Back</button>
+                            <button className="btn btn-light my-1">Volver a planetas</button>
                         </Link>
                     </div>
                 </div>

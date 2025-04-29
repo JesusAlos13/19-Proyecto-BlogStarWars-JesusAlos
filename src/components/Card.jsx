@@ -24,8 +24,8 @@ export const Card = ({ name, link }) => {
             <div className="card-body">
                 <h5 className="card-title text-center fw-semibold">{name}</h5>
                 <div className="d-flex justify-content-between align-items-center mt-3">
-                    <Link to={link} className="btn btn-outline-primary btn-sm">
-                        More info
+                    <Link to={link} className="btn btn-outline-success btn-sm">
+                        Mas detalles
                     </Link>
                     <button className={`btn btn-sm ${isFavorite ? "btn-danger" : "btn-outline-danger"}`} onClick={toggleFavorite}>
                         {isFavorite ? "❤️" : "🤍"}

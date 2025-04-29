@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "../components/Card";
 import useGlobalReducer from "../hooks/useGlobalReducer";
+import { useNavigate } from "react-router-dom";
 
 export const People = () => {
-    const [peopleList, setPeopleList] = useState([]);
+    const [people, setPeople] = useState([]);
     const [loading, setLoading] = useState(true);
-    const { dispatch } = useGlobalReducer();
+    const { store, dispatch } = useGlobalReducer();
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchPeople();
@@ -15,7 +17,7 @@ export const People = () => {
         try {
             const response = await fetch("https://swapi.tech/api/people/");
             const data = await response.json();
-            setPeopleList(data.results);
+            setPeople(data.results);
         } catch (error) {
             console.error("Error fetching people:", error);
         } finally {
@@ -23,21 +25,27 @@ export const People = () => {
         }
     };
 
+    const handleBack = () => {
+        navigate(-1);
+    };
+
     return (
-        <div className="container my-4">
-            <h1 className="text-center mb-4">Personajes Star Wars</h1>
+        <div className="container">
+            <h1>Personajes Star Wars</h1>
+            <button onClick={handleBack} className="btn btn-primary mb-3">
+                Volver atrás
+            </button>
             {loading ? (
-                <p className="text-center">Cargando...</p>
+                <p>Cargando...</p>
             ) : (
-                <div className="row g-4">
-                    {peopleList.map((person, index) => (
-                        <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <Card
-                                name={person.name}
-                                dispatch={dispatch}
-                                link={`/person/${person.name}`}
-                            />
-                        </div>
+                <div className="d-flex flex-wrap justify-content-center m-1">
+                    {people.map((person, index) => (
+                        <Card
+                            key={index}
+                            name={person.name}
+                            dispatch={dispatch}
+                            link={`/person/${person.uid}`}
+                        />
                     ))}
                 </div>
             )}

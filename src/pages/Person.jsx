@@ -8,7 +8,7 @@ export const Person = () => {
 
     useEffect(() => {
         fetchPerson();
-    }, [id]); 
+    }, [id]);
 
     const fetchPerson = async () => {
         try {
@@ -25,7 +25,7 @@ export const Person = () => {
     return (
         <div className="container">
             {loading ? (
-                <p>Loading...</p>
+                <p>Cargando...</p>
             ) : (
                 <div className="d-flex justify-content-center align-items-center min-vh-100 flex-column">
                     <div className="text-center">
@@ -46,7 +46,7 @@ export const Person = () => {
 
                     <div className="text-center mt-3">
                         <Link to="/people">
-                            <button className="btn btn-light my-1">Back</button>
+                            <button className="btn btn-light my-1">Volver a personajes</button>
                         </Link>
                     </div>
                 </div>
